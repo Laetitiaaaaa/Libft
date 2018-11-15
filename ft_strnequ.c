@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   maintest.c                                         :+:      :+:    :+:   */
+/*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llejeune <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/13 07:39:21 by llejeune          #+#    #+#             */
-/*   Updated: 2018/11/15 13:52:44 by llejeune         ###   ########.fr       */
+/*   Created: 2018/11/15 13:49:29 by llejeune          #+#    #+#             */
+/*   Updated: 2018/11/15 13:54:00 by llejeune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
-#include <ctype.h>
 
-int		main(int argc, char **argv)
+int		ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-//	char s1[50] = "je suis une pomme";
-//	char s11[50] = "je suis une pomme";
+	size_t i;
 
-	argc = 3;
-	printf("%d\n", ft_strnequ(argv[1], argv[2], atoi(argv[3])));
-//	printf("%zu\n", strlcat(argv[1], argv[2], atoi(argv[3])));
-
+	i = 0;
+	while ((s1[i] != 0 || s2[i] != 0) && s1[i] == s2[i] && i < n)
+		i++;
+	if (s1[i] == s2[i])
+		return (1);
 	return (0);
 }

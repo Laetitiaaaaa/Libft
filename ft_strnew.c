@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   maintest.c                                         :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llejeune <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/13 07:39:21 by llejeune          #+#    #+#             */
-/*   Updated: 2018/11/15 13:52:44 by llejeune         ###   ########.fr       */
+/*   Created: 2018/11/15 11:35:02 by llejeune          #+#    #+#             */
+/*   Updated: 2018/11/15 11:48:14 by llejeune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
-#include <ctype.h>
 
-int		main(int argc, char **argv)
+char	*ft_strnew(size_t size)
 {
-//	char s1[50] = "je suis une pomme";
-//	char s11[50] = "je suis une pomme";
+	size_t	i;
+	char	*tab;
 
-	argc = 3;
-	printf("%d\n", ft_strnequ(argv[1], argv[2], atoi(argv[3])));
-//	printf("%zu\n", strlcat(argv[1], argv[2], atoi(argv[3])));
-
-	return (0);
+	i = 0;
+	tab = (char *)malloc(sizeof(char) * size);
+	if (tab == 0)
+		return (NULL);
+	while (i < size)
+	{
+		tab[i] = 0;
+		i++;
+	}
+	return (tab);
 }

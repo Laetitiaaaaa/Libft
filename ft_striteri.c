@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   maintest.c                                         :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llejeune <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/13 07:39:21 by llejeune          #+#    #+#             */
-/*   Updated: 2018/11/15 13:52:44 by llejeune         ###   ########.fr       */
+/*   Created: 2018/11/15 12:12:23 by llejeune          #+#    #+#             */
+/*   Updated: 2018/11/15 12:15:38 by llejeune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
-#include <ctype.h>
 
-int		main(int argc, char **argv)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-//	char s1[50] = "je suis une pomme";
-//	char s11[50] = "je suis une pomme";
+	unsigned int i;
 
-	argc = 3;
-	printf("%d\n", ft_strnequ(argv[1], argv[2], atoi(argv[3])));
-//	printf("%zu\n", strlcat(argv[1], argv[2], atoi(argv[3])));
-
-	return (0);
+	i = 0;
+	while (s[i] != 0)
+	{
+		f(i, s);
+		i++;
+	}
 }
