@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   maintest.c                                         :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llejeune <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/13 07:39:21 by llejeune          #+#    #+#             */
-/*   Updated: 2018/11/15 10:22:02 by llejeune         ###   ########.fr       */
+/*   Created: 2018/11/15 07:57:39 by llejeune          #+#    #+#             */
+/*   Updated: 2018/11/15 08:14:15 by llejeune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
-#include <ctype.h>
 
-int		main(int argc, char **argv)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-//	char s1[50] = "je suis une pomme";
-//	char s11[50] = "je suis une pomme";
+	size_t i;
 
-	argc = 4;
-	printf("%zu\n", ft_strlcat(argv[1], argv[2], atoi(argv[3])));
-//	printf("%zu\n", strlcat(argv[1], argv[2], atoi(argv[3])));
-
-	return (0);
+	i = 0;
+	while (i < n)
+	{
+		if (((char *)s)[i] == (unsigned char)c)
+			return (&((char *)s)[i]);
+		i++;
+	}
+	return (NULL);
 }

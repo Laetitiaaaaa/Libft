@@ -1,27 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   maintest.c                                         :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llejeune <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/13 07:39:21 by llejeune          #+#    #+#             */
-/*   Updated: 2018/11/15 10:22:02 by llejeune         ###   ########.fr       */
+/*   Created: 2018/11/15 08:45:34 by llejeune          #+#    #+#             */
+/*   Updated: 2018/11/15 10:14:55 by llejeune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
-#include <ctype.h>
 
-int		main(int argc, char **argv)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-//	char s1[50] = "je suis une pomme";
-//	char s11[50] = "je suis une pomme";
+	size_t	i;
+	int		taille;
+	int		j;
 
-	argc = 4;
-	printf("%zu\n", ft_strlcat(argv[1], argv[2], atoi(argv[3])));
-//	printf("%zu\n", strlcat(argv[1], argv[2], atoi(argv[3])));
-
-	return (0);
+	i = 0;
+	taille = ft_strlen(dst);
+	j = 0;
+	while (i < len)
+	{
+		((char *)dst)[j] = ((char *)src)[i];
+		i++;
+		j++;
+	}
+	if (taille == (int)len)
+		((char *)dst)[j] = 0;
+	if (taille < (int)len)
+	{
+		while ((int)i < ft_strlen(src))
+		{
+			((char *)dst)[j] = ((char *)src)[(int)i - (taille + 1)];
+			i++;
+			j++;
+		}
+	}
+	return ((char *)dst);
 }

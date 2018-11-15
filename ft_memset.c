@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   maintest.c                                         :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llejeune <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/13 07:39:21 by llejeune          #+#    #+#             */
-/*   Updated: 2018/11/15 10:22:02 by llejeune         ###   ########.fr       */
+/*   Created: 2018/11/14 11:44:27 by llejeune          #+#    #+#             */
+/*   Updated: 2018/11/14 12:15:35 by llejeune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
-#include <ctype.h>
 
-int		main(int argc, char **argv)
+void	*ft_memset(void *b, int c, size_t len)
 {
-//	char s1[50] = "je suis une pomme";
-//	char s11[50] = "je suis une pomme";
+	size_t i;
 
-	argc = 4;
-	printf("%zu\n", ft_strlcat(argv[1], argv[2], atoi(argv[3])));
-//	printf("%zu\n", strlcat(argv[1], argv[2], atoi(argv[3])));
-
-	return (0);
+	i = 0;
+	while (i < len)
+	{
+		((char*)b)[i] = (char)c;
+		i++;
+	}
+	return (b);
 }
