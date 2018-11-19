@@ -6,13 +6,13 @@
 /*   By: llejeune <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/15 15:12:05 by llejeune          #+#    #+#             */
-/*   Updated: 2018/11/16 16:01:53 by llejeune         ###   ########.fr       */
+/*   Updated: 2018/11/19 11:13:14 by llejeune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int				ft_word(const char *s, char c)
+static int		ft_word(const char *s, char c)
 {
 	int i;
 	int	word;
