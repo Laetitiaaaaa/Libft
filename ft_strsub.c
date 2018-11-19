@@ -1,32 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llejeune <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/12 08:49:03 by llejeune          #+#    #+#             */
-/*   Updated: 2018/11/19 10:54:11 by llejeune         ###   ########.fr       */
+/*   Created: 2018/11/15 13:58:14 by llejeune          #+#    #+#             */
+/*   Updated: 2018/11/15 14:14:36 by llejeune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strdup(const char *s1)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	int		i;
-	char	*tab;
-	int		taille;
+	unsigned int	i;
+	size_t			j;
+	char			*tab;
 
 	i = 0;
-	taille = ft_strlen(s1);
-	if (!(tab = (char *)malloc(sizeof(char) * (taille + 1))))
-		return (0);
-	while (s1[i] != 0)
+	j = 0;
+	tab = (char *)malloc(sizeof(char) * (len + 1));
+	if (tab == 0)
+		return (NULL);
+	while (s[i] != 0)
 	{
-		tab[i] = s1[i];
+		if (i == (size_t)start)
+		{
+			while (s[i] != 0 && j < len)
+			{
+				tab[j] = s[i];
+				j++;
+				i++;
+			}
+			tab[i] = 0;
+		}
 		i++;
 	}
-	tab[i] = 0;
 	return (tab);
 }
