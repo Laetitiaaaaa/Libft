@@ -6,7 +6,7 @@
 #    By: llejeune <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/19 10:29:12 by llejeune          #+#    #+#              #
-#    Updated: 2018/11/19 11:21:18 by llejeune         ###   ########.fr        #
+#    Updated: 2018/11/19 11:37:51 by llejeune         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,6 +75,6 @@ clean:
 	rm -f *.o
 
 fclean:
-	rm -f $(NAME)
+	rm -f *.o $(NAME)
 
 re: fclean all
