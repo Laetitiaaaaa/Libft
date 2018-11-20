@@ -6,7 +6,7 @@
 /*   By: llejeune <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/15 11:49:22 by llejeune          #+#    #+#             */
-/*   Updated: 2018/11/15 11:51:40 by llejeune         ###   ########.fr       */
+/*   Updated: 2018/11/20 14:07:44 by llejeune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 
 void	ft_strdel(char **as)
 {
-	free(*as);
-	*as = NULL;
+	if (as != NULL)
+	{
+		if (*as != NULL)
+		{
+			free(*as);
+			*as = NULL;
+		}
+	}
 }

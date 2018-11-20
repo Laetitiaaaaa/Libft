@@ -6,7 +6,7 @@
 /*   By: llejeune <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 16:06:13 by llejeune          #+#    #+#             */
-/*   Updated: 2018/11/19 14:07:57 by llejeune         ###   ########.fr       */
+/*   Updated: 2018/11/20 12:05:02 by llejeune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,12 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	i = ft_strlen(src);
 	j = ft_strlen(dst);
 	k = 0;
-	ft_strncat(dst, src, size);
-	if (size < j)
+	if (size <= j)
 		k = i + size;
 	else
+	{
+		ft_strncat(dst, src, size - (j + 1));
 		k = i + j;
+	}
 	return (k);
 }

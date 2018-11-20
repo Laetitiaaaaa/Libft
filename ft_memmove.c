@@ -6,7 +6,7 @@
 /*   By: llejeune <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/15 08:45:34 by llejeune          #+#    #+#             */
-/*   Updated: 2018/11/15 10:14:55 by llejeune         ###   ########.fr       */
+/*   Updated: 2018/11/20 09:08:45 by llejeune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,22 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t	i;
-	int		taille;
-	int		j;
+	size_t i;
 
 	i = 0;
-	taille = ft_strlen(dst);
-	j = 0;
+	if (&src[0] < &dst[0] && len > 0)
+	{
+		while (len > 0)
+		{
+			((char *)dst)[len] = ((char *)src)[len];
+			len--;
+		}
+		((char *)dst)[0] = ((char *)src)[0];
+	}
 	while (i < len)
 	{
-		((char *)dst)[j] = ((char *)src)[i];
+		((char *)dst)[i] = ((char *)src)[i];
 		i++;
-		j++;
 	}
-	if (taille == (int)len)
-		((char *)dst)[j] = 0;
-	if (taille < (int)len)
-	{
-		while ((int)i < ft_strlen(src))
-		{
-			((char *)dst)[j] = ((char *)src)[(int)i - (taille + 1)];
-			i++;
-			j++;
-		}
-	}
-	return ((char *)dst);
+	return (dst);
 }

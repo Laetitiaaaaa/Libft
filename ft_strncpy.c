@@ -6,7 +6,7 @@
 /*   By: llejeune <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 16:26:17 by llejeune          #+#    #+#             */
-/*   Updated: 2018/11/12 16:27:00 by llejeune         ###   ########.fr       */
+/*   Updated: 2018/11/20 09:33:23 by llejeune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strncpy(char *dest, const char *src, size_t len)
 		dest[i] = src[i];
 		i++;
 	}
-	while (src[i] != 0)
+	while (i < len)
 	{
 		dest[i] = 0;
 		i++;

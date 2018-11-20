@@ -6,7 +6,7 @@
 /*   By: llejeune <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/15 11:24:09 by llejeune          #+#    #+#             */
-/*   Updated: 2018/11/15 11:32:31 by llejeune         ###   ########.fr       */
+/*   Updated: 2018/11/20 14:05:52 by llejeune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 
 void	ft_memdel(void **ap)
 {
-	free(*ap);
-	*ap = NULL;
+	if (ap != 0)
+	{
+		if (*ap != NULL)
+		{	
+			free(*ap);
+			*ap = NULL;
+		}
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: llejeune <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/15 12:24:50 by llejeune          #+#    #+#             */
-/*   Updated: 2018/11/15 13:35:47 by llejeune         ###   ########.fr       */
+/*   Updated: 2018/11/20 14:53:42 by llejeune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ char	*ft_strmap(char const *s, char (*f)(char))
 	char	*tab;
 
 	i = 0;
-	tab = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
+	if (s == 0 || f == 0)
+		return (NULL);
+	if (!(tab = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1))))
+		return (NULL);
 	while (s[i] != 0)
 	{
 		tab[i] = f(s[i]);
