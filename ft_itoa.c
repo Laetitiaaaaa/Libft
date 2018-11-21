@@ -6,7 +6,7 @@
 /*   By: llejeune <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/19 07:58:14 by llejeune          #+#    #+#             */
-/*   Updated: 2018/11/19 09:13:06 by llejeune         ###   ########.fr       */
+/*   Updated: 2018/11/21 12:43:32 by llejeune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,22 @@ static int		ft_sizen(int n)
 	return (c);
 }
 
-static char		*ft_putlim(char *tab)
+static char		*ft_putlim(char *tab, int n)
 {
-	tab = "-2147483648";
+	int i;
+	int j;
+
+	i = ft_sizen(n);
+	j = i - 1;
+	tab[0] = '-';
+	tab[1] = '2';
+	n = 147483648;
+	while (n > 0)
+	{
+		tab[j--] = (n % 10) + '0';
+		n = n / 10;
+	}
+	tab[i] = 0;
 	return (tab);
 }
 
@@ -56,7 +69,7 @@ char			*ft_itoa(int n)
 	if (n < 0)
 	{
 		if (n == -2147483648)
-			return (ft_putlim(tab));
+			return (tab = ft_putlim(tab, n));
 		tab[0] = '-';
 		n = -n;
 	}

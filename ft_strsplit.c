@@ -6,7 +6,7 @@
 /*   By: llejeune <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/15 15:12:05 by llejeune          #+#    #+#             */
-/*   Updated: 2018/11/19 11:13:14 by llejeune         ###   ########.fr       */
+/*   Updated: 2018/11/21 12:02:09 by llejeune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,20 +55,19 @@ char			**ft_strsplit(char const *s, char c)
 	int		a;
 	char	**tab;
 
+	if (s == 0)
+		return (NULL);
 	i = 0;
 	j = 0;
 	a = ft_word(s, c);
 	if (!(tab = (char **)malloc(sizeof(char *) * (a + 1))))
 		return (NULL);
-	if (a > 0)
+	while (s[i] != 0 && j < a)
 	{
-		while (s[i] != 0)
-		{
-			tab[j++] = ft_strsub(s, (unsigned int)i, ft_lenword(s, i, c));
-			i = i + ft_lenword(s, i, c);
-			while (s[i] == c)
-				i++;
-		}
+		while (s[i] == c)
+			i++;
+		tab[j++] = ft_strsub(s, (unsigned int)i, ft_lenword(s, i, c));
+		i = i + ft_lenword(s, i, c);
 	}
 	tab[j] = NULL;
 	return (tab);

@@ -6,34 +6,55 @@
 /*   By: llejeune <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/15 14:41:59 by llejeune          #+#    #+#             */
-/*   Updated: 2018/11/15 15:10:18 by llejeune         ###   ########.fr       */
+/*   Updated: 2018/11/21 11:28:41 by llejeune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s)
+static int	ft_wint(const char *s, int i)
+{
+	if (s[i] == 32 || s[i] == '\t' || s[i] == '\n')
+	{
+		while (s[i] == 32 || s[i] == '\t' || s[i] == '\n')
+			i++;
+	}
+	else
+		i = 0;
+	return (i);
+}
+
+static int	ft_sizes(int i, int a)
+{
+	int	s;
+
+	s = 0;
+	while (i++ < a)
+		s++;
+	return (s);
+}
+
+char		*ft_strtrim(char const *s)
 {
 	int		i;
 	int		j;
+	int		a;
 	char	*tab;
 
-	i = 0;
-	j = 0;
-	tab = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
-	if (tab == 0)
+	if (s == 0)
 		return (NULL);
-	while (s[i] != 0)
+	j = 0;
+	a = ft_strlen(s);
+	i = ft_wint(s, 0);
+	if (s[a - 1] == 32 || s[a - 1] == '\t' || s[a - 1] == '\n')
 	{
-		while (s[i] == 32 || s[i] == 9 || s[i] == 13)
-		{
-			if (s[i + 1] != 0)
-				i++;
-		}
-		tab[j] = s[i];
-		i++;
-		j++;
+		while (s[a - 1] == 32 || s[a - 1] == '\t' || s[a - 1] == '\n')
+			a--;
 	}
+	if (!(tab = (char *)malloc(sizeof(char) * (ft_sizes(i, a) + 1))))
+		return (NULL);
+	while (i < a)
+		tab[j++] = ((char *)s)[i++];
 	tab[j] = 0;
 	return (tab);
 }
