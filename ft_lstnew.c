@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llejeune <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/13 11:23:27 by llejeune          #+#    #+#             */
-/*   Updated: 2018/11/23 16:30:14 by llejeune         ###   ########.fr       */
+/*   Created: 2018/11/21 18:41:32 by llejeune          #+#    #+#             */
+/*   Updated: 2018/11/23 16:34:42 by llejeune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+t_list	*ft_lstnew(void const *content, size_t content_size)
 {
-	size_t		len;
+	t_list	*tmp;
 
-	len = ft_strlen(s);
-	if (c == 0)
-		return ((char *)&s[len]);
-	while (len > 0)
+	if (!(tmp = (t_list *)malloc(sizeof(t_list))))
+		return (NULL);
+	if (content != NULL)
 	{
-		if (s[len] == c)
-			return ((char *)&s[len]);
-		len--;
+		if (!(tmp->content = (char *)malloc(sizeof(char) * content_size)))
+			return (NULL);
+		ft_memcpy(tmp->content, content, content_size);
+		tmp->content_size = content_size;
 	}
-	if (s[0] == c)
-		return ((char *)&s[0]);
-	return (NULL);
+	else
+	{
+		tmp->content = NULL;
+		tmp->content_size = 0;
+	}
+	tmp->next = NULL;
+	return (tmp);
 }

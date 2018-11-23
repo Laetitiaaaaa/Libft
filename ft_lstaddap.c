@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_lstaddap.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llejeune <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/13 11:23:27 by llejeune          #+#    #+#             */
-/*   Updated: 2018/11/23 16:30:14 by llejeune         ###   ########.fr       */
+/*   Created: 2018/11/23 12:21:43 by llejeune          #+#    #+#             */
+/*   Updated: 2018/11/23 16:05:18 by llejeune         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+void	ft_lstaddap(t_list **alst, t_list *new)
 {
-	size_t		len;
-
-	len = ft_strlen(s);
-	if (c == 0)
-		return ((char *)&s[len]);
-	while (len > 0)
+	while ((*alst)->next != NULL)
 	{
-		if (s[len] == c)
-			return ((char *)&s[len]);
-		len--;
+		(*alst) = (*alst)->next;
 	}
-	if (s[0] == c)
-		return ((char *)&s[0]);
-	return (NULL);
+	(*alst)->next = new;
+	new->next = NULL;
 }
